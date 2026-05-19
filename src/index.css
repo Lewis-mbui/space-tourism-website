@@ -121,6 +121,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
 .container {
   width: min(calc(100% - 2rem), 60rem);
   margin: 0 auto;
