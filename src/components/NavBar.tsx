@@ -1,22 +1,28 @@
-import { Link, NavLink } from "react-router";
+import { Link, useLocation } from "react-router";
+import NavLink from "./NavLink";
 
 const NavBar = () => {
+  const navLinks = [
+    { text: "Home", path: "/" },
+    { text: "Destination", path: "/destinations" },
+    { text: "Crew", path: "/crew" },
+    { text: "Technology", path: "/technology" },
+  ] as const;
+
+  const { pathname } = useLocation();
+
   return (
     <nav>
       <Link to={"/"}>logo</Link>
-      <ul className="nav-links">
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/destinations">Destination</NavLink>
-        </li>
-        <li>
-          <NavLink to="/crew">Crew</NavLink>
-        </li>
-        <li>
-          <NavLink to="/technology">Technology</NavLink>
-        </li>
+      <ul className="primary-navigation | underline-indicators flex">
+        {navLinks.map((l, index) => (
+          <li
+            key={l.text}
+            className={`underline-indicator ${l.path === pathname ? "active" : ""}`}
+          >
+            <NavLink text={l.text} path={l.path} linkNumber={index + 1} />
+          </li>
+        ))}
       </ul>
     </nav>
   );
