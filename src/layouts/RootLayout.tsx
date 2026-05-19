@@ -1,5 +1,5 @@
 import NavBar from "../components/NavBar";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 
 const RootLayout = () => {
   return (
@@ -8,6 +8,14 @@ const RootLayout = () => {
       <h2 className="numbered-title">
         <span>01</span> colors
       </h2>
+      <div style={{ marginBlock: "5rem" }}>
+        <Link
+          to=""
+          className="large-button | uppercase ff-serif fs-600 text-dark bg-white"
+        >
+          Explore
+        </Link>
+      </div>
       <main>
         <Outlet />
       </main>
