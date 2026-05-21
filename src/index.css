@@ -7,20 +7,39 @@
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
 
-  /* font sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
-  --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
-  --fs-300: 1rem;
-  --fs-200: 0.875rem;
-
   /* font-families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+
+  /* font-sizes */
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
+  --fs-500: 1.75rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+}
+
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
 }
 
 /*----------------------*/
@@ -56,8 +75,8 @@ html:focus-within {
 
 html,
 body {
-  min-height: 100%;
-  /* height: 100%; */
+  height: 100%; /* Gives a definitive height to the chain */
+  margin: 0;
 }
 
 /* Set core body defaults */
@@ -69,6 +88,8 @@ body {
   font-size: var(--fs-400);
   background: hsl(var(--clr-dark));
   color: hsl(var(--clr-light));
+
+  display: grid;
 }
 
 /* A elements that don't have a class get default styles */
@@ -121,13 +142,54 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
 
 .container {
-  width: min(calc(100% - 2rem), 60rem);
-  margin: 0 auto;
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        1rem,
+        1fr
+      );
+
+    text-align: left;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(20vh, 6rem);
+    align-items: end;
+  }
+
+  .grid-container > :first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > :last-child {
+    grid-column: 3;
+  }
 }
 
 .sr-only {
@@ -242,6 +304,7 @@ select {
 /* COMPONENTS           */
 /*----------------------*/
 .large-button {
+  font-size: 2rem;
   position: relative;
   display: inline-grid;
   z-index: 1;
@@ -347,4 +410,42 @@ select {
   background-color: hsl(var(--clr-white) / 1);
   color: hsl(var(--clr-dark));
   border-color: hsl(var(--clr-white) / 1);
+}
+
+/*----------------------*/
+/* BASE LAYOUT          */
+/*----------------------*/
+#root,
+.root-layout,
+main {
+  display: grid;
+}
+
+.root-layout {
+  grid-template-rows: auto 1fr;
+}
+
+/*----------------------------*/
+/* BASE SPECIFIC BACKGROUND---*/
+/*----------------------------*/
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+
+/* Home */
+.home {
+  background-image: url("./assets/home/background-home-mobile.jpg");
+}
+
+@media (min-width: 35em) {
+  .home {
+    background-image: url("./assets/home/background-home-tablet.jpg");
+  }
+}
+
+@media (min-width: 45em) {
+  .home {
+    background-image: url("./assets/home/background-home-desktop.jpg");
+  }
 }

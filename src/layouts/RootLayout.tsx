@@ -4,7 +4,7 @@ import PrimaryHeader from "../components/PrimaryHeader";
 
 const RootLayout = () => {
   return (
-    <div>
+    <div className="root-layout">
       <PrimaryHeader />
       <main>
         <PageWrapper>

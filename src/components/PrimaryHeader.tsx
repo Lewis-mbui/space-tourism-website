@@ -7,7 +7,7 @@ const PrimaryHeader = () => {
       <div>
         <img src={logo} alt="space tourism logo" />
       </div>
-      <NavBar />
+      {/* <NavBar /> */}
     </header>
   );
 };

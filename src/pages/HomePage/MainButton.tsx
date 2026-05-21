@@ -4,7 +4,7 @@ const MainButton = () => {
   return (
     <Link
       to=""
-      className="large-button | uppercase ff-serif fs-600 text-dark bg-white"
+      className="large-button | uppercase ff-serif text-dark bg-white"
     >
       Explore
     </Link>
