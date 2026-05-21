@@ -8,7 +8,10 @@ interface Props {
 
 const NavLink = ({ path, text, linkNumber }: Props) => {
   return (
-    <Link className="uppercase text-white letter-spacing-2" to={path}>
+    <Link
+      className="ff-sans-cond uppercase text-white letter-spacing-2"
+      to={path}
+    >
       <span>0{linkNumber}</span>
       {text}
     </Link>

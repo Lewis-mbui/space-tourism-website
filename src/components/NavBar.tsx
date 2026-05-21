@@ -1,10 +1,10 @@
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import NavLink from "./NavLink";
 
 const NavBar = () => {
   const navLinks = [
     { text: "Home", path: "/" },
-    { text: "Destination", path: "/destinations" },
+    { text: "Destination", path: "/destination" },
     { text: "Crew", path: "/crew" },
     { text: "Technology", path: "/technology" },
   ] as const;
@@ -13,14 +13,13 @@ const NavBar = () => {
 
   return (
     <nav>
-      <Link to={"/"}>logo</Link>
       <ul className="primary-navigation | underline-indicators flex">
         {navLinks.map((l, index) => (
           <li
             key={l.text}
             className={`underline-indicator ${l.path === pathname ? "active" : ""}`}
           >
-            <NavLink text={l.text} path={l.path} linkNumber={index + 1} />
+            <NavLink text={l.text} path={l.path} linkNumber={index} />
           </li>
         ))}
       </ul>
