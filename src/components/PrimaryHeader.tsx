@@ -1,5 +1,5 @@
 import NavBar from "./NavBar";
-import logo from "../assets/shared/logo.svg";
+import logo from "/assets/shared/logo.svg";
 import { useState } from "react";
 
 const PrimaryHeader = () => {
