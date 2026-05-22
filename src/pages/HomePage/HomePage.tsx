@@ -2,7 +2,7 @@ import MainButton from "./MainButton";
 
 const HomePage = () => {
   return (
-    <>
+    <div className="grid-container grid-container--home">
       <div>
         <h1 className="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">
           So, you want to travel to{" "}
@@ -18,7 +18,7 @@ const HomePage = () => {
       <div>
         <MainButton />
       </div>
-    </>
+    </div>
   );
 };
 
