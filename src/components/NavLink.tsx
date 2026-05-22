@@ -12,7 +12,7 @@ const NavLink = ({ path, text, linkNumber }: Props) => {
       className="ff-sans-cond uppercase text-white letter-spacing-2"
       to={path}
     >
-      <span>0{linkNumber}</span>
+      <span aria-hidden={true}>0{linkNumber}</span>
       {text}
     </Link>
   );

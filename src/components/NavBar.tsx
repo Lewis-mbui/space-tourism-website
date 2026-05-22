@@ -1,7 +1,11 @@
 import { useLocation } from "react-router";
 import NavLink from "./NavLink";
 
-const NavBar = () => {
+interface Props {
+  isExpanded: boolean;
+}
+
+const NavBar = ({ isExpanded }: Props) => {
   const navLinks = [
     { text: "Home", path: "/" },
     { text: "Destination", path: "/destination" },
@@ -13,7 +17,11 @@ const NavBar = () => {
 
   return (
     <nav>
-      <ul className="primary-navigation | underline-indicators flex">
+      <ul
+        id="primary-navigation"
+        className="primary-navigation | underline-indicators flex"
+        data-visible={isExpanded ? true : false}
+      >
         {navLinks.map((l, index) => (
           <li
             key={l.text}
