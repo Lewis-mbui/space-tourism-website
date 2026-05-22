@@ -11,7 +11,7 @@ const DestinationPage = () => {
   const destination = destinations[selectedIndex];
 
   return (
-    <div className="grid-container grid-container--destination">
+    <div className="grid-container grid-container--destination flow">
       <h1 className="numbered-title">
         <span aria-hidden={true}>01</span> Pick your destination
       </h1>
@@ -34,11 +34,11 @@ const DestinationPage = () => {
         <div className="destination-meta | flex">
           <div>
             <h3 className="text-accent fs-200 uppercase">Avg. distance</h3>
-            <p className="fs-500 ff-serif uppercase">{destination.distance}</p>
+            <p className="ff-serif uppercase">{destination.distance}</p>
           </div>
           <div>
             <h3 className="text-accent fs-200 uppercase">Est. travel time </h3>
-            <p className="fs-500 ff-serif uppercase">{destination.travel}</p>
+            <p className="ff-serif uppercase">{destination.travel}</p>
           </div>
         </div>
       </article>

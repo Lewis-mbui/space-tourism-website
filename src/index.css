@@ -95,6 +95,7 @@ body {
   overflow-x: hidden;
   background-size: cover;
   background-position: bottom center;
+  background-repeat: no-repeat;
 }
 
 /* A elements that don't have a class get default styles */
@@ -385,7 +386,7 @@ select {
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url(/assets/shared/icon-hamburger.svg);
+    background-image: url(/assets/shared/icon-close.svg);
   }
 
   .mobile-nav-toggle:focus-visible {
@@ -428,10 +429,15 @@ select {
 }
 
 .underline-indicators > * {
-  padding: var(--underline-gap, 1rem) 0;
   border: 0;
   border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
   cursor: pointer;
+}
+
+.underline-indicators a,
+.underline-indicators button {
+  display: inline-block;
+  padding: var(--underline-gap, 1rem) 0;
 }
 
 .underline-indicators > *:hover,
@@ -550,7 +556,7 @@ main {
   padding-bottom: 4rem;
 }
 
-.grid-container * {
+.grid-container p:not([class]) {
   max-width: 50ch;
 }
 
@@ -587,6 +593,22 @@ main {
   margin-top: 2.5rem;
 }
 
+.destination-meta p {
+  font-size: 1.75rem;
+}
+
+@media (min-width: 35em) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
 @media (min-width: 45em) {
   .grid-container {
     column-gap: var(--container-gap, 2rem);
@@ -598,16 +620,34 @@ main {
     text-align: left;
   }
 
-  .grid-container > :first-child {
-    grid-column: 2;
-  }
-
-  .grid-container > :last-child {
-    grid-column: 3;
-  }
-
   .grid-container--home {
     padding-bottom: max(20vh, 6rem);
     align-items: end;
+  }
+
+  .grid-container--home > :first-child {
+    grid-column: 2;
+  }
+
+  .grid-container--home > :last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--destination {
+    justify-items: start;
+    /* align-content: start; */
+    grid-template-areas:
+      ". title title ."
+      ". image tabs ."
+      ". image content .";
+  }
+
+  .grid-container--destination > img {
+    max-width: 90%;
+  }
+
+  .destination-meta {
+    --gap: min(6vw, 6rem);
+    justify-content: start;
   }
 }
