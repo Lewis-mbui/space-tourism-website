@@ -36,7 +36,12 @@
 @media (min-width: 45em) {
   :root {
     /* font sizes */
-    --fs-800: 6.25rem;
+    --fs-800: 5rem;
+    --fs-800: clamp(
+      5rem,
+      -1.9230769230769234rem + 15.384615384615385vw,
+      6.25rem
+    );
     --fs-700: 3.5rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
@@ -591,6 +596,7 @@ main {
 .grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -643,6 +649,9 @@ main {
   .numbered-title {
     justify-self: start;
     margin-top: 2rem;
+  }
+  .grid-container--destination {
+    align-content: start;
   }
 
   .destination-meta {
@@ -704,13 +713,18 @@ main {
   }
 
   .grid-container--crew {
+    grid-template-columns:
+      minmax(1rem, 1fr) minmax(0, 50rem) minmax(0, 30rem)
+      minmax(1rem, 1fr);
+    justify-items: start;
     grid-template-areas:
-      ". title title ."
+      ". title image ."
       ". content image ."
       ". tabs image .";
   }
-
-  .grid-container--crew > .dot-indicators {
-    justify-self: start;
+  .grid-container--crew > picture {
+    grid-column: span 2;
+    align-self: end;
+    max-width: 100%;
   }
 }

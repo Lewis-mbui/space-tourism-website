@@ -36,7 +36,7 @@ const CrewPage = () => {
         className="crew-details flow"
         role="tabpanel"
         id={`${crewMember.role}-tab`}
-        tab-index="0"
+        tab-index={0}
       >
         <header className="flow flow--small">
           <h2 className="fs-600 ff-serif uppercase">{crewMember.role}</h2>
