@@ -27,7 +27,7 @@ const TechnologyPage = () => {
               className="fs-600 text-color text-white bg-dark"
               aria-selected={selectedIndex === index ? "true" : "false"}
               role="tab"
-              aria-controls={`${technology.name}-tab`}
+              aria-controls={`${t.name}-tab`}
               key={t.name}
             >
               {index + 1}

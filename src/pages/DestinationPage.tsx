@@ -18,10 +18,10 @@ const DestinationPage = () => {
 
     if (!tabsRef.current) return;
 
-    const tabsList = tabsRef.current.querySelectorAll('[role="tab"');
+    const tabsList = tabsRef.current.querySelectorAll('[role="tab"]');
 
     if (e.key === rightKey || e.key === leftKey) {
-      tabsList[tabFocus].setAttribute("tabIndex", "-1");
+      tabsList[tabFocus].setAttribute("tabindex", "-1");
 
       if (e.key === rightKey) {
         tabFocus++;
@@ -57,7 +57,7 @@ const DestinationPage = () => {
           <button
             onClick={() => setSelectedIndex(index)}
             aria-selected={selectedIndex === index ? "true" : "false"}
-            aria-controls={`${destination.name}-tab`}
+            aria-controls={`${d.name}-tab`}
             role="tab"
             className="uppercase ff-sans-cond text-accent letter-spacing-2"
             key={d.name}

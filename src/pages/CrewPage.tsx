@@ -25,7 +25,7 @@ const CrewPage = () => {
             onClick={() => setSelectedIndex(index)}
             aria-selected={selectedIndex === index ? "true" : "false"}
             role="tab"
-            aria-controls={`${crewMember.role}-tab`}
+            aria-controls={`${c.role}-tab`}
             key={c.name}
           >
             <span className="sr-only">{c.name}</span>
@@ -36,7 +36,7 @@ const CrewPage = () => {
         className="crew-details flow"
         role="tabpanel"
         id={`${crewMember.role}-tab`}
-        tab-index={0}
+        tabIndex={0}
       >
         <header className="flow flow--small">
           <h2 className="fs-600 ff-serif uppercase">{crewMember.role}</h2>
