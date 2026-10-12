@@ -20,7 +20,7 @@ const NavBar = ({ isExpanded }: Props) => {
       <ul
         id="primary-navigation"
         className="primary-navigation | underline-indicators flex"
-        data-visible={isExpanded ? true : false}
+        data-visible={isExpanded}
       >
         {navLinks.map((l, index) => (
           <li
